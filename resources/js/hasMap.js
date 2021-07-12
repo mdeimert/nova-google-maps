@@ -27,6 +27,7 @@ export default {
             this.map.panTo(this.location.latlng);
             this.marker = new google.maps.Marker({
                 position: this.location.latlng,
+                draggable: true,
                 map: this.map
             });
         },
