@@ -119,6 +119,14 @@ export default {
 
             this.location = e.suggestion;
             this.setLocation(this.location);
+            google.maps.event.addListener(this.marker, 'dragend',
+              (marker)  => {
+                if(this.location) {
+                  this.location.latlng.lat = marker.latLng.lat();
+                  this.location.latlng.lng = marker.latLng.lng();
+                }
+              }
+            );
         },
 
         /**
