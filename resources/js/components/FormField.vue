@@ -36,11 +36,22 @@ export default {
         this.initPlaces();
         this.initGmaps();
 
+        
+
         if(this.location) {
             // Add a little delay to fix panTo not registering on update
             setTimeout(() => {
                 this.places.setVal(this.location.value);
                 this.setLocation(this.location);
+
+                google.maps.event.addListener(this.marker, 'dragend',
+                  (marker)  => {
+                    if(this.location) {
+                      this.location.latlng.lat = marker.latLng.lat();
+                      this.location.latlng.lat = marker.latLng.lng();
+                    }
+                  }
+                );
             }, 100);
         }
     },
