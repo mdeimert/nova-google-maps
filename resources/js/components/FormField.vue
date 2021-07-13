@@ -48,7 +48,7 @@ export default {
                   (marker)  => {
                     if(this.location) {
                       this.location.latlng.lat = marker.latLng.lat();
-                      this.location.latlng.lat = marker.latLng.lng();
+                      this.location.latlng.lng = marker.latLng.lng();
                     }
                   }
                 );
